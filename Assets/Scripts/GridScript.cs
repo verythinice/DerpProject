@@ -8,7 +8,7 @@ public class GridScript : MonoBehaviour {
     private Mesh mesh;
 
     // Use this for initialization
-    void Awake()
+    void Start()
     {
         generate();
     }
@@ -21,7 +21,7 @@ public class GridScript : MonoBehaviour {
         vertices = new Vector3[((xSize) * (ySize)*4)];
         int[] triangles = new int[xSize * ySize * 6];
         Vector2[] uv = new Vector2[vertices.Length];
-        for (int i=0, y=ySize-1, ti=0, qi=0; y>=0; y--)
+        for (int i=0, y=-1, ti=0, qi=0; y>=-(ySize); y--)
         {
             for (int x=0; x< xSize; x++, i+=4, ti+=6, qi++)
             {
@@ -60,7 +60,4 @@ public class GridScript : MonoBehaviour {
     //}
 
     // Update is called once per frame
-    void Update () {
-	
-	}
 }
