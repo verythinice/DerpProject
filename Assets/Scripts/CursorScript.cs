@@ -6,21 +6,23 @@ public class CursorScript : MonoBehaviour {
     private int y;
     private bool verticalDown;
     private bool horizontalDown;
+    private TerrainScript terrain;
 
 	// Use this for initialization
 	void Start () {
         //x 0 at origin, more positive to the right
         x = 0;
-        //Y 0 at origin, more positive down
+        //y 0 at origin, more positive down
         y = 0;
         horizontalDown = false;
         verticalDown = false;
+        GameObject map = GameObject.Find("Map");
+        terrain = map.GetComponent<TerrainScript>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         float vertical = Input.GetAxisRaw("Vertical");
-        print(vertical);
         if (vertical != 0)
         {
             if (!verticalDown)
@@ -61,5 +63,6 @@ public class CursorScript : MonoBehaviour {
             horizontalDown = false;
         }
         transform.position = new Vector2(x + 0.5f, -(y + 0.5f));
+        print(terrain.getTile(x, y));
 	}
 }
