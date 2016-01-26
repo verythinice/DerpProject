@@ -6,6 +6,7 @@ public class WaterTile : FlyWeightTile {
     {
         this.name = "water";
         this.passable = false;
+        this.flyable = true;
         this.movementCost = 1;
     }
 }

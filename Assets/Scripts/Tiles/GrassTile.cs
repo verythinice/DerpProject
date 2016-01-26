@@ -6,6 +6,7 @@ public class GrassTile : FlyWeightTile {
     {
         this.name = "grass";
         this.passable = true;
+        this.flyable = true;
         this.movementCost = 1;
     }
 }

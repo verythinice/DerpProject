@@ -63,6 +63,6 @@ public class CursorScript : MonoBehaviour {
             horizontalDown = false;
         }
         transform.position = new Vector2(x + 0.5f, -(y + 0.5f));
-        print(terrain.getTile(x, y));
+        //print(terrain.getTile(x, y));
 	}
 }
