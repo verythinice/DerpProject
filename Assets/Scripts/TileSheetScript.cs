@@ -22,7 +22,7 @@ public class TileSheetScript : MonoBehaviour
             {
                 try
                 {
-                    tileMap[i,j] = Int32.Parse(tiles[n]);
+                    tileMap[j,i] = Int32.Parse(tiles[n]);
                 }
                 catch (FormatException e)
                 {

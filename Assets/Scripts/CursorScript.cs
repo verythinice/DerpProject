@@ -7,6 +7,8 @@ public class CursorScript : MonoBehaviour {
     private bool verticalDown;
     private bool horizontalDown;
     private TerrainScript terrain;
+    private EntityMapScript entities;
+    private string state;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +20,8 @@ public class CursorScript : MonoBehaviour {
         verticalDown = false;
         GameObject map = GameObject.Find("Map");
         terrain = map.GetComponent<TerrainScript>();
+        entities = map.GetComponent<EntityMapScript>();
+        state = "default";
 	}
 	
 	// Update is called once per frame
