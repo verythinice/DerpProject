@@ -8,7 +8,7 @@ public class CursorScript : MonoBehaviour {
     private bool horizontalDown;
     private TerrainScript terrain;
     private EntityMapScript entities;
-    private string state;
+    //private string state;
 
 	// Use this for initialization
 	void Start () {
@@ -21,11 +21,17 @@ public class CursorScript : MonoBehaviour {
         GameObject map = GameObject.Find("Map");
         terrain = map.GetComponent<TerrainScript>();
         entities = map.GetComponent<EntityMapScript>();
-        state = "default";
+        //state = "default";
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        move();
+        //print(terrain.getTile(x, y));
+	}
+
+    private void move()
+    {
         float vertical = Input.GetAxisRaw("Vertical");
         if (vertical != 0)
         {
@@ -67,6 +73,15 @@ public class CursorScript : MonoBehaviour {
             horizontalDown = false;
         }
         transform.position = new Vector2(x + 0.5f, -(y + 0.5f));
-        //print(terrain.getTile(x, y));
-	}
+    }
+
+    public FlyWeightTile getCursorTerrain()
+    {
+        return terrain.getTile(x, y);
+    }
+
+    public GameObject getCursorCharacter()
+    {
+        return entities.getObject(x, y);
+    }
 }

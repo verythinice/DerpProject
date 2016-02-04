@@ -22,9 +22,24 @@ public class EntityMapScript : MonoBehaviour {
         }
     }
 
-    public void removeObject(int x, int y)
+    public GameObject removeObject(int x, int y)
     {
+        GameObject result = entities[x,y];
         entities[x, y] = null;
+        return result;
+    }
+
+    public void moveObject(int x, int y, int newX, int newY)
+    {
+        if (entities[newX, newY] == null)
+        {
+            entities[newX, newY] = entities[x,y];
+            entities[x, y] = null;
+        }
+        else
+        {
+            throw new System.Exception("Object already exists in location");
+        }
     }
 
     public GameObject getObject(int x, int y)
