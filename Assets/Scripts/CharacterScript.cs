@@ -18,6 +18,7 @@ public class CharacterScript : MonoBehaviour {
         GameObject map = GameObject.Find("Map");
         terrain = map.GetComponent<TerrainScript>();
         entities = map.GetComponent<EntityMapScript>();
+        entities.addObject(gameObject, x, y);
     }
 	
     public void move(int newX, int newY)
@@ -31,6 +32,6 @@ public class CharacterScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        transform.position = new Vector2(x, y);
-	}
+        transform.position = new Vector2(x + 0.5f, -(y + 0.5f));
+    }
 }

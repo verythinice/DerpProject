@@ -5,7 +5,7 @@ public class EntityMapScript : MonoBehaviour {
     private GameObject[,] entities;
 
     // Use this for initialization
-    void Start() {
+    void Awake() {
         TileSheetScript map = GetComponent<TileSheetScript>();
         entities = new GameObject[map.xSize, map.ySize];
     }
